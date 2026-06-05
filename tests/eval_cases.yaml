@@ -1,0 +1,28 @@
+# Example evaluation cases. Replace these with your own ground truth.
+#
+# Each case can specify any of:
+#   query                  (required)
+#   expected_answer        (optional, free-form reference)
+#   relevant_doc_ids       (for retrieval precision/recall, doc-level)
+#   relevant_chunk_ids     (for chunk-level precision/recall)
+#   must_contain           (strings that should appear in the answer)
+#   must_not_contain       (strings that must NOT appear — for hallucination)
+#
+# Run: python scripts/run_eval.py tests/eval_cases.yaml
+
+cases:
+  - query: "What were the main causes of the Q3 production shortfall?"
+    must_contain: []
+    must_not_contain: ["fabricated", "I don't know but"]
+
+  - query: "Summarize the key decisions made in the 2025 planning report."
+    must_not_contain: []
+
+  - query: "What risks were flagged regarding the RGPT migration?"
+    must_not_contain: []
+
+  - query: "List the recommended next steps for the platform team."
+    must_not_contain: []
+
+  - query: "Who approved the procurement of new GPU clusters?"
+    must_not_contain: ["maybe", "probably"]
