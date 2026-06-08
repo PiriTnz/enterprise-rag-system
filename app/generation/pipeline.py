@@ -246,7 +246,7 @@ class RAGPipeline:
         if not chunks:
             return 0.0
 
-        admitted_unknown = "do not contain enough information" in answer.lower()
+        admitted_unknown = ("i don\'t know" in answer.lower() or "do not contain enough information" in answer.lower())
         if admitted_unknown:
             return 0.05
 
